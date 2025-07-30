@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Sign Up Toggle</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      width: 360px;
+      transition: height 0.4s ease;
+      overflow: hidden;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+      border-color: #4a90e2;
+      box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+      outline: none;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #357abd;
+    }
+
+    .switch {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    .switch label {
+      color: #4a90e2;
+      cursor: pointer;
+    }
+
+    /* Toggle Logic */
+    #toggleForm {
+      display: none;
+    }
+
+    .sign-up-fields {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    #toggleForm:checked ~ .form-container .sign-up-fields {
+      max-height: 300px;
+    }
+
+    #toggleForm:checked ~ .form-container .form-title {
+      display: none;
+    }
+
+    #toggleForm:checked ~ .form-container .form-title-signup {
+      display: block;
+    }
+
+    .form-title-signup {
+      display: none;
+    }
+
+    #toggleForm:checked ~ .form-container form button {
+      content: "Sign Up";
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toggle Checkbox -->
+  <input type="checkbox" id="toggleForm" hidden>
+
+  <div class="form-container">
+    <!-- Login Title -->
+    <h2 class="form-title">Login</h2>
+    <!-- Sign Up Title -->
+    <h2 class="form-title-signup">Sign Up</h2>
+
+    <form action="success.html">
+      <div class="sign-up-fields">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" placeholder="Enter your name" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+
+      <button class="btn" type="submit">Submit</button>
+
+      <div class="switch">
+        <label for="toggleForm">
+          <span class="form-title">Don't have an account? <strong>Sign Up</strong></span>
+          <span class="form-title-signup">Already have an account? <strong>Login</strong></span>
+        </label>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
